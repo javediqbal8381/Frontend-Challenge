@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import useItemsStore from "../store/useItemStore";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const Checkout = () => {
   const { cartItems, loadFromStorage, removeFromCart, clearCart } = useItemsStore();

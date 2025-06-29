@@ -4,6 +4,7 @@ const useItemsStore = create((set, get) => ({
   items: [],
   itemsLoading: false,
   cartItems: [],
+
   fetchItems: async () => {
     set({ itemsLoading: true })
     try {
@@ -17,6 +18,7 @@ const useItemsStore = create((set, get) => ({
       set({ itemsLoading: false })
     }
   },
+
   addItem: async (newItem) => {
     // API for adding a new item
     const res = await fetch('/items', {
@@ -27,6 +29,7 @@ const useItemsStore = create((set, get) => ({
     const created = await res.json()
     set((state) => ({ items: [...state.items, created] }))
   },
+
   addToCart: (item) => {
     // only add if item is not already in cart
     if(get().cartItems.some(cartItem => cartItem.id === item.id)) {
@@ -40,6 +43,7 @@ const useItemsStore = create((set, get) => ({
     cart.push(item)
     localStorage.setItem('cart', JSON.stringify(cart))
   },
+
   removeFromCart: (itemId) => {
     set((state) => ({
       cartItems: state.cartItems.filter(item => item.id !== itemId)
@@ -49,10 +53,12 @@ const useItemsStore = create((set, get) => ({
     const updatedCart = cart.filter(item => item.id !== itemId)
     localStorage.setItem('cart', JSON.stringify(updatedCart))
   },
+
   loadFromStorage: () => {
     const storedCart = JSON.parse(localStorage.getItem('cart')) || []
     set({ cartItems: storedCart })
   },
+  
   clearCart: () => {
     set({ cartItems: [] })
     localStorage.removeItem('cart')

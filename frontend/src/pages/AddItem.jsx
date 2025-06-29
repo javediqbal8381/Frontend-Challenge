@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useItemsStore from "../store/useItemStore";
+import { toast } from 'sonner';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import useItemsStore from "../store/useItemStore";
-import Navbar from "../components/Navbar";
-import {toast } from 'sonner';
-import { useNavigate } from "react-router-dom";
-
 
 const AddItem = () => {
-  const { items, fetchItems } = useItemsStore()
+  const { items, fetchItems, addItem } = useItemsStore()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +16,6 @@ const AddItem = () => {
     }
   }, []);
 
-  const { addItem } = useItemsStore();
   const [form, setForm] = useState({
     name: "",
     price: "",
@@ -38,7 +35,7 @@ const AddItem = () => {
       toast.error("Product name should be at least 3 characters long");
       return;
     }
-      // for validation
+    // for validation
     if (isNaN(form.price) || form.price.trim() === "") {
       toast.error("Price must be a number");
       return;
@@ -63,41 +60,41 @@ const AddItem = () => {
 
   return (
     <main className="flex-1 flex items-center justify-center px-6 py-16">
-        <Card className="w-full max-w-md p-6">
-          <h1 className="text-2xl font-bold mb-4 text-center text-gray-800">
-            Add New Product
-          </h1>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                name="name"
-                placeholder="Product Name"
-                value={form.name}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                name="price"
-                type="number"
-                placeholder="Price"
-                value={form.price}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                name="img"
-                placeholder="Image URL"
-                value={form.img}
-                onChange={handleChange}
-                required
-              />
-              <Button type="submit" className="w-full text-black shadow-md hover:bg-gray-100">
-                Add Product
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-      </main>
+      <Card className="w-full max-w-md p-6">
+        <h1 className="text-2xl font-bold mb-4 text-center text-gray-800">
+          Add New Product
+        </h1>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Input
+              name="name"
+              placeholder="Product Name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+            <Input
+              name="price"
+              type="number"
+              placeholder="Price"
+              value={form.price}
+              onChange={handleChange}
+              required
+            />
+            <Input
+              name="img"
+              placeholder="Image URL"
+              value={form.img}
+              onChange={handleChange}
+              required
+            />
+            <Button type="submit" className="w-full text-black shadow-md hover:bg-gray-100">
+              Add Product
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </main>
   );
 };
 

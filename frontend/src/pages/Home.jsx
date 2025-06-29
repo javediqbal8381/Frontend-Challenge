@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { Truck, BadgeDollarSign, ShieldCheck, Sparkles } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import WhyShop from "../components/WhyShop";
 
 const Home = () => {

@@ -1,12 +1,12 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
+import { Toaster } from 'sonner'
+import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Checkout from './pages/Checkout'
 import AddItem from './pages/AddItem'
 import Items from './pages/Items'
 import Footer from './components/Footer'
-import { Toaster } from 'sonner'
-import Navbar from './components/Navbar'
 
 
 function App() {

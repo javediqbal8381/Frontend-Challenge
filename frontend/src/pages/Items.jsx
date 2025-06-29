@@ -1,9 +1,7 @@
 import { ShoppingCart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import useItemsStore from "../store/useItemStore";
-
+import { Button } from "@/components/ui/button";
 
 const Item = () => {
   const { items, fetchItems, itemsLoading, addToCart, cartItems, removeFromCart } = useItemsStore()
@@ -27,8 +25,6 @@ const Item = () => {
       removeFromCart(item.id);
     }
   }
-
-  console.log("Cart Items:", cartItems);
 
   return (
       <main className="flex-1 px-6 py-8">

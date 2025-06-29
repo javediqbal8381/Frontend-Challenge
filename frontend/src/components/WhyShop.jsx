@@ -1,6 +1,3 @@
-// components/WhyShopSection.tsx
-"use client";
-
 import { Truck, BadgeDollarSign, ShieldCheck, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 

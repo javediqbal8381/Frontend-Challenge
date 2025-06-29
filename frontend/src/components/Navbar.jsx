@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Menu, X } from "lucide-react";
 import useItemStore from "../store/useItemStore";
-import { useEffect, useState } from "react";
 import { Badge } from "../components/ui/badge";
 
 const Navbar = () => {

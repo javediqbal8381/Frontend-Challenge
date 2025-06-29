@@ -13,11 +13,12 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        rewrite: path => path.replace(/^\/api/, '')
-      }
-    }
-  }
+      "/items": "http://localhost:3000",
+      "/img": "http://localhost:3000",
+    },
+  },
+  build: {
+    outDir: path.resolve(__dirname, "../static"),
+    emptyOutDir: false,
+  },
 })

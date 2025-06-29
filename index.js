@@ -18,6 +18,11 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 app.use('/items', items);
 
+// Serve React app for specific frontend routes
+app.get(['/', '/checkout', '/add-item', '/products'], function(req, res) {
+    res.sendFile(path.join(__dirname, 'static', 'index.html'));
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

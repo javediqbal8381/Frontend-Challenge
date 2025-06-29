@@ -5,10 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import useItemsStore from "../store/useItemStore";
 import Navbar from "../components/Navbar";
 import {toast } from 'sonner';
+import { useNavigate } from "react-router-dom";
 
 
 const AddItem = () => {
   const { items, fetchItems } = useItemsStore()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (items.length === 0) {
@@ -53,12 +55,14 @@ const AddItem = () => {
     form.id = maxId + 1;
     addItem(form);
     setForm({ name: "", price: "", img: "" });
+    toast.success("Product added successfully!");
+    setTimeout(() => {
+      navigate("/products");
+    }, 1000);
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <Navbar />
-      <div className="flex items-center justify-center pt-20 px-2">
+    <main className="flex-1 flex items-center justify-center px-6 py-16">
         <Card className="w-full max-w-md p-6">
           <h1 className="text-2xl font-bold mb-4 text-center text-gray-800">
             Add New Product
@@ -93,8 +97,7 @@ const AddItem = () => {
             </form>
           </CardContent>
         </Card>
-      </div>
-    </div>
+      </main>
   );
 };
 

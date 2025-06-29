@@ -31,8 +31,6 @@ const Item = () => {
   console.log("Cart Items:", cartItems);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <Navbar />
       <main className="flex-1 px-6 py-8">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-10">Shop Products</h1>
         <div className="mb-8 max-w-md mx-auto">
@@ -72,7 +70,6 @@ const Item = () => {
           }
         </div>
       </main>
-    </div>
   );
 };
 

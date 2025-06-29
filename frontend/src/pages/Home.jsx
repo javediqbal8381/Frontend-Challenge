@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import { Truck, BadgeDollarSign, ShieldCheck, Sparkles } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import WhyShop from "../components/WhyShop";
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Navbar />
-      <main className="flex-1 flex items-center justify-center px-6 py-12">
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <main>
+       <div className="flex-1 flex items-center justify-center px-6 py-16">
+        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6">
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 leading-tight">
@@ -47,8 +48,12 @@ const Home = () => {
             />
           </div>
         </div>
-      </main>
-    </div>
+        {/* Why Shop Section */}
+        
+      </div>
+      <WhyShop/>
+    </main>
+     
   );
 };
 

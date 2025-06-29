@@ -53,6 +53,10 @@ const useItemsStore = create((set, get) => ({
     const storedCart = JSON.parse(localStorage.getItem('cart')) || []
     set({ cartItems: storedCart })
   },
+  clearCart: () => {
+    set({ cartItems: [] })
+    localStorage.removeItem('cart')
+  }
 }))
 
 export default useItemsStore
